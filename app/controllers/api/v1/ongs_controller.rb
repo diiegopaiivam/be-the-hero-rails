@@ -38,7 +38,7 @@ class Api::V1::OngsController < Api::V1::ApiController
         end
 
         def ong_params
-            params.require(:ong).permit(:name, :email, :password, :password)
+            params.require(:ong).permit(:name, :email, :password)
         end
 
 end
