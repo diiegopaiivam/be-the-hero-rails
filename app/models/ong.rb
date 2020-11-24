@@ -5,5 +5,5 @@ class Ong < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :incidents, dependent: :destroy
+  has_many :incident, dependent: :destroy
 end

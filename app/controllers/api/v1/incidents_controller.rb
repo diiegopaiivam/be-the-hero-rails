@@ -4,12 +4,13 @@ class Api::V1::IncidentsController < Api::V1::ApiController
     before_action :set_incident, only: [:show, :update, :destroy]
 
     def index
-        @incidents = current_ong.incidents
+        @incidents = Incident.all  
         render json: @incidents
     end
 
     def show
-        render json: @incident
+        @incidents = Incident.joins(:ong).select("incidents.*, ongs.contact").find params[:id]
+        render json: @incidents
     end 
 
     def create
